@@ -1,6 +1,7 @@
 from estudiante import *
 import csv
 
+#Metodo para crear los n estudiantes e ingresarlos en un archivo .csv
 def ingresarDatos(n,estudiantes):
     for k in range(n):
         est = []
@@ -32,6 +33,7 @@ def ingresarDatos(n,estudiantes):
         print('Los datos han sido guardados!!')
     return filename
 def crearObjetos():
+    #Metodo que lee el archivo csv creado y crea el objeto estudiante para poder acceder a los metodos
     objeto = []
     f = open("Datos.csv")
     reader = csv.reader(f)
@@ -40,6 +42,7 @@ def crearObjetos():
         objeto.append(est)
     return objeto
 def contadorSexo(objetos):
+    #Se crean dos listas para separar hombres de mujeres y poder contar cuantos hay de cada uno. Ademas, de usar este metodo para clasificarlos por equipos
     listaM = []
     listaF = []
     for i in objetos:
@@ -48,6 +51,7 @@ def contadorSexo(objetos):
         else:
             listaM.append(i)
     return listaM, listaF
+    #Metodo para verificar los menores de edad
 def edad(objetos):
     cont = 0
     for i in objetos:
@@ -57,6 +61,7 @@ def edad(objetos):
 
 baseEstudiantes = crearObjetos()
 x = True
+#Menu
 while x:
     m = input('-------Menu-------\n1. Desea agregar un nuevo estudiante\n2. Generar registro de estudiantes\n3. Equipos de Baloncesto\n4. Salir\nSeleccione su opcion: ')
     if m == '1':
